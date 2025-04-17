@@ -10,70 +10,70 @@ on:
 jobs:
   pre-prod:
     steps:
-      - name: Deploy TestApp-Frontend to Preprod
+      - name: Deploy App1-Frontend to Preprod
         kind: deploy
-        if: ${{ fromJSON(inputs.manifest)['TestApp-Frontend']['TestApp-Frontend'].deploy }}
+        if: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Frontend']['App1-Frontend'].deploy }}
         uses: cloudbees-io/register-deployed-artifact@v1
         with:
-          version: ${{ fromJSON(inputs.manifest)['TestApp-Frontend']['TestApp-Frontend'].version }}
-          url: ${{ fromJSON(inputs.manifest)['TestApp-Frontend']['TestApp-Frontend'].url }}
-          digest: ${{ fromJSON(inputs.manifest)['TestApp-Frontend']['TestApp-Frontend'].digest }}
+          version: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Frontend']['App1-Frontend'].version }}
+          url: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Frontend']['App1-Frontend'].url }}
+          digest: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Frontend']['App1-Frontend'].digest }}
           target-environment: pre-prod
-          name: TestApp-Frontend
+          name: App1-Frontend
 
-      - name: Deploy TestApp-Backend to Preprod
+      - name: Deploy App1-Backend to Preprod
         kind: deploy
-        if: ${{ fromJSON(inputs.manifest)['TestApp-Backend']['TestApp-Backend'].deploy }}
+        if: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Backend']['App1-Backend'].deploy }}
         uses: cloudbees-io/register-deployed-artifact@v1
         with:
-          version: ${{ fromJSON(inputs.manifest)['TestApp-Backend']['TestApp-Backend'].version }}
-          url: ${{ fromJSON(inputs.manifest)['TestApp-Backend']['TestApp-Backend'].url }}
-          digest: ${{ fromJSON(inputs.manifest)['TestApp-Backend']['TestApp-Backend'].digest }}
+          version: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Backend']['App1-Backend'].version }}
+          url: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Backend']['App1-Backend'].url }}
+          digest: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Backend']['App1-Backend'].digest }}
           target-environment: pre-prod
-          name: TestApp-Backend
+          name: App1-Backend
 
-      - name: Deploy TestApp-APIs to Preprod
+      - name: Deploy App1-APIs to Preprod
         kind: deploy
-        if: ${{ fromJSON(inputs.manifest)['TestApp-APIs']['TestApp-APIs'].deploy }}
+        if: ${{ fromJSON(inputs.manifest)['BTDemos/App1-APIs']['App1-APIs'].deploy }}
         uses: cloudbees-io/register-deployed-artifact@v1
         with:
-          version: ${{ fromJSON(inputs.manifest)['TestApp-APIs']['TestApp-APIs'].version }}
-          url: ${{ fromJSON(inputs.manifest)['TestApp-APIs']['TestApp-APIs'].url }}
-          digest: ${{ fromJSON(inputs.manifest)['TestApp-APIs']['TestApp-APIs'].digest }}
+          version: ${{ fromJSON(inputs.manifest)['BTDemos/App1-APIs']['App1-APIs'].version }}
+          url: ${{ fromJSON(inputs.manifest)['BTDemos/App1-APIs']['App1-APIs'].url }}
+          digest: ${{ fromJSON(inputs.manifest)['BTDemos/App1-APIs']['App1-APIs'].digest }}
           target-environment: pre-prod
-          name: TestApp-APIs
+          name: App1-APIs
   prod:
     needs: pre-prod
     steps:
-      - name: Deploy TestApp-Frontend to Prod
+      - name: Deploy App1-Frontend to Prod
         kind: deploy
-        if: ${{ fromJSON(inputs.manifest)['TestApp-Frontend']['TestApp-Frontend'].deploy }}
+        if: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Frontend']['App1-Frontend'].deploy }}
         uses: cloudbees-io/register-deployed-artifact@v1
         with:
-          version: ${{ fromJSON(inputs.manifest)['TestApp-Frontend']['TestApp-Frontend'].version }}
-          url: ${{ fromJSON(inputs.manifest)['TestApp-Frontend']['TestApp-Frontend'].url }}
-          digest: ${{ fromJSON(inputs.manifest)['TestApp-Frontend']['TestApp-Frontend'].digest }}
+          version: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Frontend']['App1-Frontend'].version }}
+          url: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Frontend']['App1-Frontend'].url }}
+          digest: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Frontend']['App1-Frontend'].digest }}
           target-environment: prod
-          name: TestApp-Frontend
+          name: App1-Frontend
 
-      - name: Deploy TestApp-Backend to Prod
+      - name: Deploy App1-Backend to Prod
         kind: deploy
-        if: ${{ fromJSON(inputs.manifest)['TestApp-Backend']['TestApp-Backend'].deploy }}
+        if: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Backend']['App1-Backend'].deploy }}
         uses: cloudbees-io/register-deployed-artifact@v1
         with:
-          version: ${{ fromJSON(inputs.manifest)['TestApp-Backend']['TestApp-Backend'].version }}
-          url: ${{ fromJSON(inputs.manifest)['TestApp-Backend']['TestApp-Backend'].url }}
-          digest: ${{ fromJSON(inputs.manifest)['TestApp-Backend']['TestApp-Backend'].digest }}
+          version: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Backend']['App1-Backend'].version }}
+          url: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Backend']['App1-Backend'].url }}
+          digest: ${{ fromJSON(inputs.manifest)['BTDemos/App1-Backend']['App1-Backend'].digest }}
           target-environment: prod
-          name: TestApp-Backend
+          name: App1-Backend
 
-      - name: Deploy TestApp-APIs to Prod
+      - name: Deploy App1-APIs to Prod
         kind: deploy
-        if: ${{ fromJSON(inputs.manifest)['TestApp-APIs']['TestApp-APIs'].deploy }}
+        if: ${{ fromJSON(inputs.manifest)['BTDemos/App1-APIs']['App1-APIs'].deploy }}
         uses: cloudbees-io/register-deployed-artifact@v1
         with:
-          version: ${{ fromJSON(inputs.manifest)['TestApp-APIs']['TestApp-APIs'].version }}
-          url: ${{ fromJSON(inputs.manifest)['TestApp-APIs']['TestApp-APIs'].url }}
-          digest: ${{ fromJSON(inputs.manifest)['TestApp-APIs']['TestApp-APIs'].digest }}
+          version: ${{ fromJSON(inputs.manifest)['BTDemos/App1-APIs']['App1-APIs'].version }}
+          url: ${{ fromJSON(inputs.manifest)['BTDemos/App1-APIs']['App1-APIs'].url }}
+          digest: ${{ fromJSON(inputs.manifest)['BTDemos/App1-APIs']['App1-APIs'].digest }}
           target-environment: prod
-          name: TestApp-APIs
+          name: App1-APIs
